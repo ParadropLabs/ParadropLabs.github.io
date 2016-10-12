@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Paradrop Workshop</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+        <section data-markdown>
+          <script type="text/template">
+            ## Workshop Schedule
+
+            - Introduction
+            - Example chutes
+              - Network test
+              - Parental control
+              - Security camera
+            - Pizza break
+            - Group projects
+            - Project demos
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ## Paradrop Architecture
+
+            - Paradrop router
+              - Instance tools
+              - Docker
+            - paradrop.org
+              - Router dashboard
+              - Chute store
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ## What is a chute?
+
+            - At minimum, a container + environment configuration
+            - Dockerfile - what to install and run in the container
+            - Configuration - what hardware and environment is expected
+          </script>
+        </section>
+
+        <section>
+          <section data-markdown>
+            <script type="text/template">
+              ## Development Workflow
+
+              - Store code and Dockerfile in a git repository
+              - Use paradrop.org to deploy to router
+              - Connect to router (SSH or web) to debug
+            </script>
+          </section>
+
+          <section data-markdown>
+            <script type="text/template">
+              ## Git project
+
+              - Fork our starter chutes for a quick start
+              - Install pulls latest commit from master branch
+            </script>
+          </section>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ## When things go wrong
+
+            - Dockerfile or configuration errors
+              - The chute fails to install
+              - Check messages log on paradrop.org
+            - Bugs or unexpected results
+              - Use SSH and docker exec to debug
+            - Ask us!
+          </script>
+        </section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
