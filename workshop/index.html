@@ -43,12 +43,7 @@
           <script type="text/template">
             ## Paradrop Architecture
 
-            - Paradrop router
-              - Instance tools
-              - Docker
-            - paradrop.org
-              - Router dashboard
-              - Chute store
+            ![Architecture](images/architecture.png)
           </script>
         </section>
 
@@ -56,9 +51,11 @@
           <script type="text/template">
             ## What is a chute?
 
-            - At minimum, a container + environment configuration
+            - Container + Configuration
             - Dockerfile - what to install and run in the container
+              - E.g. install a web server
             - Configuration - what hardware and environment is expected
+              - E.g. a WiFi network
           </script>
         </section>
 
@@ -67,18 +64,17 @@
             <script type="text/template">
               ## Development Workflow
 
-              - Store code and Dockerfile in a git repository
-              - Use paradrop.org to deploy to router
+              - Code and Dockerfile in a git repository
+              - Use paradrop.org to install on router
               - Connect to router (SSH or web) to debug
             </script>
           </section>
 
           <section data-markdown>
             <script type="text/template">
-              ## Git project
+              ## Example
 
-              - Fork our starter chutes for a quick start
-              - Install pulls latest commit from master branch
+              ![Architecture](images/workflow.png)
             </script>
           </section>
         </section>
