@@ -1,0 +1,192 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>ParaDrop Overview</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+    <link rel="stylesheet" href="css/custom.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+        <section data-markdown>
+          <script type="text/template">
+            # ParaDrop
+
+            ## Services at the Extreme Edge
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ## Motivation
+
+            - Cloud computing is valuable but has its drawbacks
+
+            ![Cloud problems](images/cloud_problems.png)
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ## Edge Computing Advantages
+
+            - Proximity to clients
+            - Context information (location)
+            - Control over data
+            - Same programming paradigm as cloud (fog)
+            
+            ![Local network](images/local_network.png)
+          </script>
+        </section>
+
+        <section>
+          <h2>Application Environments</h2>
+
+          <div class="left">
+            <ul>
+              <li>Home and small businesses</li>
+              <li>
+                WiFi routers
+                <ul>
+                  <li>Always on and connected</li>
+                  <li>Low power but underutilized</li>
+                  <li>Low programmability</li>
+                </ul>
+              </li>
+              <li>Parachute new services</li>
+            </ul>
+          </div>
+
+          <div class="right">
+            <img width="200px" src="images/paradrop_chute.png">
+          </div>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ## ParaDrop Platform
+
+            - **OS:** Ubuntu Snappy
+              - Low footprint
+              - Transactional updates
+            - **Applications:** Docker containers
+              - Lightweight virtualization
+            - **Management:** ParaDrop daemon
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ## Unique Capabilities
+
+            - Highly programmable
+              - Diverse programming languages
+              - Portability via Docker
+            - Context awareness
+              - WiFi, Bluetooth, other (Airshark)
+            - Hardware access and sharing
+          </script>
+        </section>
+
+        <section>
+          <section data-markdown>
+            <script type="text/template">
+              ## Example Chute
+              ### SecCam
+            </script>
+          </section>
+
+          <section data-markdown>
+            <script type="text/template">
+              ## SecCam
+              ### Cloud vs. Cloud+Edge
+
+              ![SecCam](images/seccam_with_and_without.png)
+            </script>
+          </section>
+
+          <section>
+            <h2>SecCam</h2>
+            <h3>Chute Definition</h3>
+            <pre><code data-trim>
+name: seccam
+description: |
+  This app launches a virtual AP for managing security cameras.
+net:
+  wifi:
+    type: wifi
+    intfName: wlan0
+    ssid: seccam
+    key: password
+    dhcp:
+      lease: 12h
+      start: 100
+      limit: 50
+download:    
+  url: https://github.com/ParadropLabs/Security-Cam
+            </code></pre>
+          </section>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ## Device Management
+
+            - Dashboard and chute store
+            - Easy to create and install new applications
+
+            ![paradrop.org](images/paradrop.org_screenshot.png)
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ## Future Directions
+
+            - Expand hardware support
+              - Bluetooth, audio, and more
+            - Resource constraints
+            - Permissions
+              - Chutes request capabilities
+            - Seamless transition between cloud & edge execution
+          </script>
+        </section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
